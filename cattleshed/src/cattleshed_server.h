@@ -173,6 +173,7 @@ class GetVersionHandler
     service_->RequestGetVersion(context, request, response_writer, cq, cq, tag);
   }
   void OnAccept(cattleshed::GetVersionRequest request) override {
+    SPDLOG_INFOSPDLOG_INFO("GetVersionHandler::OnAccept"); 
     version_runner_.reset(new VersionRunner(ioc_, sigs_, *config_));
     version_runner_->AsyncRun(
         [this, context = Context()](
