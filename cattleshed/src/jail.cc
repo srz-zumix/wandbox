@@ -216,11 +216,11 @@ int proc(void* arg_) {
       exit_error(("mknod " + f).c_str());
   }
 
-  // mount /proc
-  mkdir_p(catpath(rootdir, "proc").c_str());
-  if (mount("proc", catpath(rootdir, "proc").c_str(), "proc",
-            MS_RDONLY | MS_NOSUID | MS_NOEXEC | MS_NODEV, nullptr) == -1)
-    exit_error("mount -o ro,nosuid,noexec,nodev /proc");
+  // // mount /proc
+  // mkdir_p(catpath(rootdir, "proc").c_str());
+  // if (mount("proc", catpath(rootdir, "proc").c_str(), "proc",
+  //           MS_RDONLY | MS_NOSUID | MS_NOEXEC | MS_NODEV, nullptr) == -1)
+  //   exit_error("mount -o ro,nosuid,noexec,nodev /proc");
 
   // finish
   if (mount(nullptr, rootdir.c_str(), nullptr,
