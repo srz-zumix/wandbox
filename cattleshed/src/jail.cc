@@ -218,7 +218,7 @@ int proc(void* arg_) {
   // mount /proc
   mkdir_p(catpath(rootdir, "proc").c_str());
   if (mount("proc", catpath(rootdir, "proc").c_str(), "proc",
-            MS_RDONLY | MS_NOSUID | MS_NODEV, nullptr) == -1)
+            MS_RDONLY | MS_NOSUID, nullptr) == -1)
     exit_error("mount -o ro,nosuid,noexec,nodev /proc");
 
   // finish
